@@ -18,4 +18,9 @@ urlpatterns = [
 
     # todo viewset 
     path('' , include(router.urls)),
+
+
+    # TODO  BLOG app 
+    path('blog/', views.BlogView.as_view()),
+    path('comments/', views.CommentsView.as_view()),
 ]

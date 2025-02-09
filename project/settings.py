@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'api', 
     # TODO endpoints to return data to the frontend CBV
     'employees',
+    # todo blog to see nested serializers and more 
+    'blog',
 
 ]
 

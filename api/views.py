@@ -11,6 +11,10 @@ from django.http import Http404
 from rest_framework import mixins , generics
 from rest_framework import viewsets
 
+# todo blog app 
+from blog.models import Blog, Comment
+from blog.serializers import BlogSerializer, CommentSerializer
+
 
 @api_view(['GET', 'POST'])
 def studentsView(request):
@@ -178,3 +182,15 @@ class EmployeeViewSet(viewsets.ViewSet):
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+
+
+# todo blog app using generic api view 
+
+class BlogView(generics.ListCreateAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer 
+
+
+class CommentsView(generics.ListCreateAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
