@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     'rest_framework',
     # todo web app endpoint 
     'students',
-    # todo endpoints to return data to the frontend 
+    # todo endpoints to return data to the frontend FBV
     'api', 
+    # TODO endpoints to return data to the frontend CBV
+    'employees',
+
 ]
 
 MIDDLEWARE = [
