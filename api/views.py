@@ -192,16 +192,20 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     serializer_class = EmployeeSerializer
     pagination_class = CustomPagination
     # todo global filter 
-    # filterset_fields = ['emp_id', 'emp_name' , 'disgnation']
+    filterset_fields = ['emp_id', 'emp_name' , 'disgnation']
     # todo custom filter 
     filter_class = EmployeeFilter
-
+ 
 
 # todo blog app using generic api view 
 
 class BlogView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer 
+       # todo search filter
+    filter_backends = [SearchFilter]
+    search_fields = ['blog_title', 'blog_body']
+
 
 
 class CommentsView(generics.ListCreateAPIView):
