@@ -17,6 +17,9 @@ from blog.serializers import BlogSerializer, CommentSerializer
 
 # todo pagination custom
 from .paginations import CustomPagination
+# todo filter 
+
+from employees.filters import EmployeeFilter
 
 
 @api_view(['GET', 'POST'])
@@ -186,6 +189,10 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
     pagination_class = CustomPagination
+    # todo global filter 
+    # filterset_fields = ['emp_id', 'emp_name' , 'disgnation']
+    # todo custom filter 
+    filter_class = EmployeeFilter
 
 
 # todo blog app using generic api view 
