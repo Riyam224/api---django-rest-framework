@@ -21,6 +21,8 @@ from .paginations import CustomPagination
 
 from employees.filters import EmployeeFilter
 
+# todo search filters 
+from rest_framework.filters import SearchFilter, OrderingFilter
 
 @api_view(['GET', 'POST'])
 def studentsView(request):
