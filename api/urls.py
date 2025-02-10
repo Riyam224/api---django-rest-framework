@@ -23,4 +23,6 @@ urlpatterns = [
     # TODO  BLOG app 
     path('blog/', views.BlogView.as_view()),
     path('comments/', views.CommentsView.as_view()),
+    path('blog/<int:pk>/', views.BlogDetailView.as_view()),
+    path('comments/<int:pk>/', views.CommentDetailView.as_view()),
 ]

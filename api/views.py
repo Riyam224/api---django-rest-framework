@@ -15,6 +15,9 @@ from rest_framework import viewsets
 from blog.models import Blog, Comment
 from blog.serializers import BlogSerializer, CommentSerializer
 
+# todo pagination custom
+from .paginations import CustomPagination
+
 
 @api_view(['GET', 'POST'])
 def studentsView(request):
@@ -182,6 +185,7 @@ class EmployeeViewSet(viewsets.ViewSet):
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+    pagination_class = CustomPagination
 
 
 # todo blog app using generic api view 
@@ -194,3 +198,13 @@ class BlogView(generics.ListCreateAPIView):
 class CommentsView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+
+class BlogDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+    lookup_field = 'pk'
+
+class CommentDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+    lookup_field = 'pk'
