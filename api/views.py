@@ -202,9 +202,10 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 class BlogView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer 
-       # todo search filter
-    filter_backends = [SearchFilter]
-    search_fields = ['^blog_title', 'blog_body']
+       # todo search filter and order 
+    filter_backends = [SearchFilter, OrderingFilter]
+    search_fields = ['blog_title', 'blog_body']
+    ordering_fields = ['id' , 'blog_title']
 
 
 
