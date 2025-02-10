@@ -204,7 +204,7 @@ class BlogView(generics.ListCreateAPIView):
     serializer_class = BlogSerializer 
        # todo search filter
     filter_backends = [SearchFilter]
-    search_fields = ['blog_title', 'blog_body']
+    search_fields = ['^blog_title', 'blog_body']
 
 
 
